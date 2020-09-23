@@ -1,7 +1,7 @@
-a=int(input())
-b=int(input())
-c=int(input())
-d=int(input())
+a = int(input())
+b = int(input())
+c = int(input())
+d = int(input())
 
-result=((a+b)/c)*d
+result = int(int((a + b) / c) * d)
 print(result)
