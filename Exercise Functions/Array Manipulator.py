@@ -7,8 +7,6 @@ def str_to_list(string):
 
 def exchange(list1, index):
     count = 0
-    if index > len(list1):
-        print('Invalid index')
     while count < index + 1:
         list1.append(list1[0])
         list1.pop(0)
@@ -37,6 +35,7 @@ def min_max_even_odd(list1, par):
     if par == 'max odd':
         for i in range(len(list1)):
             if not list1[i] % 2 == 0 and list1[i] > max_num:
+                count += 1
                 max_num = list1[i]
                 index = i
             if not list1[i] % 2 == 0 and list1[i] == max_num:
@@ -49,6 +48,7 @@ def min_max_even_odd(list1, par):
     if par == 'min even':
         for i in range(len(list1)):
             if list1[i] % 2 == 0 and list1[i] < min_num:
+                count += 1
                 min_num = list1[i]
                 index = i
             if list1[i] % 2 == 0 and list1[i] == min_num:
@@ -61,6 +61,7 @@ def min_max_even_odd(list1, par):
     if par == 'min odd':
         for i in range(len(list1)):
             if not list1[i] % 2 == 0 and list1[i] < min_num:
+                count += 1
                 min_num = list1[i]
                 index = i
             if not list1[i] % 2 == 0 and list1[i] == min_num:
@@ -103,17 +104,22 @@ def first_last_even_odd(list1, par):
                 value -= 1
         return li
 
-list1=str_to_list(input())
-line=None
-while line!='end':
-    line=input()
-    if 'exchange' in line:
-        word,value=line.split()
-        value=int(value)
+
+list1 = str_to_list(input())
+line = None
+while line != 'end':
+    line = input()
+    if line == 'end':
+        print(list1)
+        break
+    if line.find('exchange') >=0:
+        word, value = line.split()
+        value = int(value)
         if value > len(list1):
             print('Invalid index')
-        list1=exchange(list1,value)
-    if 'max ' or 'min' in line:
-        print(min_max_even_odd(list1,line))
-    if 'first' or 'last' in line:
-        print(first_last_even_odd(list1,line))
+        else:
+            list1 = exchange(list1, value)
+    if line.find('max') >=0 or line.find('min') >=0:
+        print(min_max_even_odd(list1, line))
+    if line.find('first') >=0 or line.find('last') >=0:
+        print(first_last_even_odd(list1, line))
