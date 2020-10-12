@@ -21,51 +21,51 @@ def min_max_even_odd(list1, par):
     count = 0
     if par == 'max even':
         for i in range(len(list1)):
+            if list1[i] % 2 == 0 and list1[i] == max_num:
+                max_num = list1[i]
+                index = i
             if list1[i] % 2 == 0 and list1[i] > max_num:
                 count += 1
                 max_num = list1[i]
                 index = i
-            if list1[i] % 2 == 0 and list1[i] == max_num:
-                max_num = list1[i]
-                index = i
         if count == 0:
             return 'No matches'
         else:
             return index
-    if par == 'max odd':
+    elif par == 'max odd':
         for i in range(len(list1)):
+            if not list1[i] % 2 == 0 and list1[i] == max_num:
+                max_num = list1[i]
+                index = i
             if not list1[i] % 2 == 0 and list1[i] > max_num:
                 count += 1
                 max_num = list1[i]
                 index = i
-            if not list1[i] % 2 == 0 and list1[i] == max_num:
-                max_num = list1[i]
-                index = i
         if count == 0:
             return 'No matches'
         else:
             return index
-    if par == 'min even':
+    elif par == 'min even':
         for i in range(len(list1)):
+            if list1[i] % 2 == 0 and list1[i] == min_num:
+                min = list1[i]
+                index = i
             if list1[i] % 2 == 0 and list1[i] < min_num:
                 count += 1
                 min_num = list1[i]
                 index = i
-            if list1[i] % 2 == 0 and list1[i] == min_num:
-                min = list1[i]
-                index = i
         if count == 0:
             return 'No matches'
         else:
             return index
-    if par == 'min odd':
+    elif par == 'min odd':
         for i in range(len(list1)):
+            if not list1[i] % 2 == 0 and list1[i] == min_num:
+                min = list1[i]
+                index = i
             if not list1[i] % 2 == 0 and list1[i] < min_num:
                 count += 1
                 min_num = list1[i]
-                index = i
-            if not list1[i] % 2 == 0 and list1[i] == min_num:
-                min = list1[i]
                 index = i
         if count == 0:
             return 'No matches'
@@ -79,25 +79,25 @@ def first_last_even_odd(list1, par):
     value = int(value)
     if value > len(list1):
         return 'Invalid count'
-    if word1 == 'first' and word2 == 'even':
+    elif word1 == 'first' and word2 == 'even':
         for i in range(len(list1)):
             if list1[i] % 2 == 0 and value > 0:
                 li.append(list1[i])
                 value -= 1
         return li
-    if word1 == 'first' and word2 == 'odd':
+    elif word1 == 'first' and word2 == 'odd':
         for i in range(len(list1)):
             if not list1[i] % 2 == 0 and value > 0:
                 li.append(list1[i])
                 value -= 1
         return li
-    if word1 == 'last' and word2 == 'even':
+    elif word1 == 'last' and word2 == 'even':
         for i in range(len(list1) - 1, -1, -1):
             if list1[i] % 2 == 0 and value > 0:
                 li.insert(0, list1[i])
                 value -= 1
         return li
-    if word1 == 'last' and word2 == 'odd':
+    elif word1 == 'last' and word2 == 'odd':
         for i in range(len(list1) - 1, -1, -1):
             if not list1[i] % 2 == 0 and value > 0:
                 li.insert(0, list1[i])
@@ -112,14 +112,14 @@ while line != 'end':
     if line == 'end':
         print(list1)
         break
-    if line.find('exchange') >=0:
+    elif line.find('exchange') >= 0:
         word, value = line.split()
         value = int(value)
         if value > len(list1):
             print('Invalid index')
         else:
             list1 = exchange(list1, value)
-    if line.find('max') >=0 or line.find('min') >=0:
+    elif line.find('max') >= 0 or line.find('min') >= 0:
         print(min_max_even_odd(list1, line))
-    if line.find('first') >=0 or line.find('last') >=0:
+    elif line.find('first') >= 0 or line.find('last') >= 0:
         print(first_last_even_odd(list1, line))
