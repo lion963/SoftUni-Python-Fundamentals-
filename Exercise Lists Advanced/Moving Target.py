@@ -1,18 +1,14 @@
 targets=list(map(int,input().split()))
-command=''
 
+command=input()
 while not command=='End':
-    command=input()
-    if command=='End':
-        break
-
     word, index, value = command.split()
     index=int(index)
     value=int(value)
 
     if word=='Shoot':
         if index>len(targets)-1:
-            continue
+            pass
         else:
             targets[index]-=value
             if targets[index]<=0:
@@ -21,7 +17,6 @@ while not command=='End':
     elif word == 'Add':
         if index > len(targets) - 1:
             print(f'Invalid placement!')
-            continue
         else:
             targets.insert(index,value)
 
@@ -34,6 +29,7 @@ while not command=='End':
                 strike_list.append(targets[i])
         for el in strike_list:
             targets.remove(el)
+    command = input()
 
 targets=list(map(str,targets))
 joined='|'.join(targets)
