@@ -1,5 +1,4 @@
 items=input().split(', ')
-print(items)
 
 command=input()
 
@@ -26,4 +25,5 @@ while not command=='Craft!':
             items.append(item)
     command = input()
 
+items=', '.join(items)
 print(items)
