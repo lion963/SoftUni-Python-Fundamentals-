@@ -12,5 +12,5 @@ for index in range(len(rooms_and_chairs)):
     elif rooms_and_chairs[index][1] > 0:
         free_chairs += rooms_and_chairs[index][1]
 
-if free_chairs>0 and needed_chairs==0:
+if free_chairs>=0 and needed_chairs==0:
     print(f'Game On, {free_chairs} free chairs left')
