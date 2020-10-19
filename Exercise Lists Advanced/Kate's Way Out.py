@@ -11,10 +11,7 @@ while True:
     position = [[r, c] for r in range(len(matrix)) for c in range(len(matrix[r])) if matrix[r][c] == 'k']
     position = [position[0][0], position[0][1]]
 
-    if position[0] == 0 or position[0] == 3:
-        print(f'Kate got out in {moves} moves')
-        break
-    elif (position[1] == 0 or position[1] == 5) and (position[0] == 1 or position[0] == 2):
+    if position[0] == 0 or position[0] == rows-1 or position[1] == 0 or position[1] == len(matrix[0])-1:
         print(f'Kate got out in {moves} moves')
         break
 
