@@ -3,7 +3,7 @@ time_per_step = list(map(int, input().split()))
 slice = int((len(time_per_step) - 1) / 2)
 
 left = time_per_step[:slice]
-right = time_per_step[slice + 1:]
+right = time_per_step[slice + 1:][::-1]
 
 sum_left=0
 sum_right=0
