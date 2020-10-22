@@ -17,7 +17,6 @@ class Zoo:
         self.__animals += 1
 
     def get_info(self, species):
-        zoo_name = self.name
         if species == 'mammal':
             species_names = self.mammals
         elif species == 'fish':
