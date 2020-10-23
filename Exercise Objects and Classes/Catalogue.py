@@ -11,9 +11,8 @@ class Catalogue:
         return list_by_letter
 
     def __repr__(self):
-        print(f'Items in the {catalogue.name} catalogue:')
         self.products.sort()
-        return [print(product) for product in self.products]
+        return ''.join('Items in the {} catalogue: \n'.format(self.name)) + '\n'.join(product for product in self.products)
 
 
 catalogue = Catalogue("Furniture")
