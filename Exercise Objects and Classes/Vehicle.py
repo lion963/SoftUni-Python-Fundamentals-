@@ -6,24 +6,22 @@ class Vehicle:
         self.owner = owner
 
     def buy(self, money, owner):
-        if not self.owner == None:
-            print('Car already sold')
-        elif money >= self.price and self.owner == None:
+        if self.owner is not None:
+            return "Car already sold"
+        if money >= self.price and self.owner is None:
             self.owner = owner
-            print(f'Successfully bought a {self.type}. Change: {money - self.price}')
-        else:
-            print('Sorry, not enough money')
+            return f"Successfully bought a {self.type}. Change: {money - self.price:.2f}"
+        return "Sorry, not enough money"
 
     def sell(self):
-        if not self.owner == None:
+        if self.owner is not None:
             self.owner = None
-        else:
-            print('Vehicle has no owner')
+        return "Vehicle has no owner"
 
     def __repr__(self):
-        if not self.owner == None:
-            return f"{self.model} {self.type} is owned by: {self.owner}"
-        return f"{self.model} {self.type} is on sale: {self.price}"
+        if self.owner is None:
+            return f"{self.model} {self.type} is on sale: {self.price}"
+        return f"{self.model} {self.type} is owned by: {self.owner}"
 
 
 vehicle_type = "car"
