@@ -9,9 +9,8 @@ while command != 'Game over':
         word, index, length = command.split('@')
         index = int(index)
         length = int(length)
-        if index>len(archery_field)-1:
-            pass
-        else:
+
+        if index in range(len(archery_field)):
             shoot_index = index - length
             if shoot_index < -len(archery_field):
                 shoot_index = shoot_index % len(archery_field)
@@ -32,9 +31,8 @@ while command != 'Game over':
         word, index, length = command.split('@')
         index = int(index)
         length = int(length)
-        if index>len(archery_field)-1:
-            pass
-        else:
+
+        if index in range(len(archery_field)):
             shoot_index = index + length
             if shoot_index > len(archery_field):
                 shoot_index = shoot_index % len(archery_field)
