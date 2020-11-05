@@ -19,8 +19,8 @@ command = input()
 while not command == 'end':
     if command.find('swap') >= 0:
         word, index1, index2 = command.split()
-        index1=int(index1)
-        index2=int(index2)
+        index1 = int(index1)
+        index2 = int(index2)
         number_list = swap(number_list, index1, index2)
     elif command.find('multiply') >= 0:
         word, index1, index2 = command.split()
