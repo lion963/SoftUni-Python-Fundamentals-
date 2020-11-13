@@ -31,6 +31,7 @@ for key, value in force_book_dict.items():
         for el in sorted(value):
             print(f'! {el}')
 
+
 # command = input()
 #
 # users = {}
