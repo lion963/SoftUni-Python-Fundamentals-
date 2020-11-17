@@ -4,6 +4,7 @@ digits = ''
 letters = ''
 other = ''
 
+
 for ch in text:
     if ch.isdigit():
         digits += ch
