@@ -3,5 +3,6 @@ import re
 sentence = input()
 word = input()
 
-result = re.findall("[\W]*" + word + "[\W]", sentence, re.IGNORECASE)
+pattern='[\W]*' + word + '[\W]'
+result = re.findall(pattern, sentence, re.IGNORECASE)
 print(len(result))
