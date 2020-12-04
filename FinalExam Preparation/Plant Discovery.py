@@ -17,14 +17,23 @@ while not line == 'Exhibition':
     if command == 'Rate':
         name, rating = action.split(' - ')
         rating = int(rating)
-        plants_dict[name]['rating'].append(rating)
+        if name in plants_dict:
+            plants_dict[name]['rating'].append(rating)
+        else:
+            print('error')
     elif command == 'Update':
         name, new_rarity = action.split(' - ')
         new_rarity = int(new_rarity)
-        plants_dict[name]['rarity'] = new_rarity
+        if name in plants_dict:
+            plants_dict[name]['rarity'] = new_rarity
+        else:
+            print('error')
     elif command == 'Reset':
         name = action
-        plants_dict[name]['rating'] = []
+        if name in plants_dict:
+            plants_dict[name]['rating'] = []
+        else:
+            print('error')
     else:
         print('error')
 
